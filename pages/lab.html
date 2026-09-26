@@ -1,0 +1,39 @@
+<!-- LAB UPGRADE -->
+    <div id="screen-lab-upgrade" class="screen">
+      <div class="card">
+        <div class="card-title">
+          <span>⬆️ 装備レベルアップ</span>
+          <span style="font-size:0.8rem;">所持金: <b style="color:var(--accent-gold);" class="val-gold">0</b>円</span>
+        </div>
+        <div style="font-size:0.75rem; color:var(--text-sub); margin-bottom:6px;">
+          上げたいレベル数（1個につき300円）を指定して強化します。
+        </div>
+        <div class="item-list" id="upgrade-equip-list"></div>
+      </div>
+    </div>
+
+    <!-- LAB COMBINE -->
+    <div id="screen-lab-combine" class="screen">
+      <div class="card">
+        <div class="card-title">🧬 装備合成（限界突破）</div>
+        <div style="font-size:0.75rem; color:var(--text-sub); margin-bottom:6px;">
+          ベース装備に同一装備（複数可）を合成し、1個につき上限を+5引き上げます（最大5回）。
+        </div>
+
+        <div style="display:flex; flex-direction:column; gap:8px;">
+          <div style="background:#0f172a; padding:8px; border-radius:8px; border:1px solid var(--border-color);">
+            <div style="font-size:0.75rem; color:var(--accent-gold);">① ベース装備:</div>
+            <div id="combine-base-display" style="font-size:0.85rem; font-weight:bold; margin-top:2px;">未選択</div>
+            <button class="btn btn-gold" onclick="openSelectCombineBaseModal()" style="margin-top:4px; font-size:0.7rem;">ベースを選択</button>
+          </div>
+
+          <div style="background:#0f172a; padding:8px; border-radius:8px; border:1px solid var(--border-color);">
+            <div style="font-size:0.75rem; color:var(--accent-gold);">② 素材装備 (複数選択可):</div>
+            <div id="combine-material-display" style="font-size:0.85rem; font-weight:bold; margin-top:2px;">未選択</div>
+            <button class="btn btn-gold" onclick="openSelectCombineMaterialModal()" style="margin-top:4px; font-size:0.7rem;">素材を選択</button>
+          </div>
+
+          <button class="btn btn-green" onclick="executeCombine()" style="padding:10px; font-size:0.9rem;">合成を実行する</button>
+        </div>
+      </div>
+    </div>

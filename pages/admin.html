@@ -1,0 +1,24 @@
+<!-- ADMIN -->
+    <div id="screen-admin" class="screen">
+      <div class="card">
+        <div class="card-title">🔒 師範代専用 管理画面</div>
+        <div style="display:flex; flex-direction:column; gap:8px; font-size:0.8rem;">
+          <div>
+            <label>レベル (1-99)</label>
+            <input type="number" id="adm-lv" min="1" max="99">
+          </div>
+          <div>
+            <label>所持金 (円)</label>
+            <input type="number" id="adm-gold">
+          </div>
+          <div>
+            <label>累積経験値</label>
+            <input type="number" id="adm-exp">
+          </div>
+          <button class="btn btn-blue" onclick="saveAdminStats()">ステータス更新</button>
+          <hr style="border-color:var(--border-color); margin:4px 0;">
+          <button class="btn btn-gold" onclick="resetDailyLimits()">1日1回制限 (稽古/ガチャ) リセット</button>
+          <button class="btn btn-red" onclick="resetAllData()" style="margin-top:8px;">💾 全セーブデータ初期化</button>
+        </div>
+      </div>
+    </div>

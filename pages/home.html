@@ -1,0 +1,75 @@
+<!-- HOME -->
+    <div id="screen-home" class="screen active">
+      <div class="char-banner" onclick="openScreen('screen-char-edit')">
+        <div class="char-avatar-lg" id="home-avatar">🥋</div>
+        <div class="char-info">
+          <div class="char-name" id="home-name">押忍たろう</div>
+          <div class="char-title-tag" id="home-title">白帯</div>
+          <div style="margin-top: 4px; font-size: 0.75rem;">
+            Lv. <span id="home-lv" style="font-weight:bold; color:var(--accent-gold);">1</span>
+            | パーティ: <span id="home-party-count" style="color:var(--accent-gold);">1</span>/4名
+          </div>
+          <div class="bar-container" style="height: 8px;">
+            <div id="home-hp-bar" class="bar-fill bg-hp" style="width: 100%;"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid-menu">
+        <div class="menu-item" onclick="openScreen('screen-stages')">
+          <div class="menu-icon">⚔️</div>
+          <div class="menu-label">ぼうけん</div>
+          <div class="menu-sub">敵と勝負</div>
+        </div>
+        <div class="menu-item" id="btn-dojo" onclick="doDojoTraining()">
+          <div class="menu-icon">🥋</div>
+          <div class="menu-label">道場稽古</div>
+          <div class="menu-sub">1日1回大進歩</div>
+        </div>
+        <div class="menu-item" id="btn-self" onclick="doSelfTraining()">
+          <div class="menu-icon">🔥</div>
+          <div class="menu-label">自主稽古</div>
+          <div class="menu-sub">1日1回努力</div>
+        </div>
+        <div class="menu-item" onclick="openScreen('screen-status')">
+          <div class="menu-icon">📊</div>
+          <div class="menu-label">ステータス</div>
+          <div class="menu-sub">能力・仲間・技</div>
+        </div>
+        <div class="menu-item" onclick="openScreen('screen-fitting')">
+          <div class="menu-icon">🥋</div>
+          <div class="menu-label">更衣室</div>
+          <div class="menu-sub">装備着脱</div>
+        </div>
+        <div class="menu-item" onclick="openScreen('screen-lab')">
+          <div class="menu-icon">🧪</div>
+          <div class="menu-label">理科室</div>
+          <div class="menu-sub">強化・合成</div>
+        </div>
+        <div class="menu-item" onclick="openScreen('screen-item-shop')">
+          <div class="menu-icon">🍞</div>
+          <div class="menu-label">購買部</div>
+          <div class="menu-sub">道具購入</div>
+        </div>
+        <div class="menu-item" onclick="openScreen('screen-equip-shop')">
+          <div class="menu-icon">🛍️</div>
+          <div class="menu-label">ショップ</div>
+          <div class="menu-sub">装備購入</div>
+        </div>
+        <div class="menu-item" onclick="openScreen('screen-fleamarket')">
+          <div class="menu-icon">📦</div>
+          <div class="menu-label">フリマ</div>
+          <div class="menu-sub">道具・装備売却</div>
+        </div>
+        <div class="menu-item" id="btn-gacha" onclick="openScreen('screen-gacha')">
+          <div class="menu-icon">🎰</div>
+          <div class="menu-label">ガチャ</div>
+          <div class="menu-sub">1日1回運試し</div>
+        </div>
+        <div class="menu-item" onclick="requestAdminAccess()">
+          <div class="menu-icon">🔒</div>
+          <div class="menu-label">管理画面</div>
+          <div class="menu-sub">師範代専用</div>
+        </div>
+      </div>
+    </div>
