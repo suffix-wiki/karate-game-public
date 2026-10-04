@@ -18,6 +18,7 @@ const BGM_SETTINGS = {
       "stage5-select": "sound/dojo.mp3"
     },
     "screen-status": "sound/home-calm.mp3",
+    "screen-missions": "sound/home-calm.mp3",
     "screen-char-edit": "sound/home-calm.mp3",
     "screen-fitting": "sound/item-and-equip.mp3",
     "screen-lab": "sound/lab.mp3",
@@ -109,39 +110,39 @@ const SKILLS_MASTER = [
 /* 敵データ */
 const STAGES_MASTER = [
   { id:"stage1", name:"自宅", recommendedLv:"1〜20", icon:"🏠", stars:"⭐︎", bgm:"intense", bgImg:"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiNYs8xSRASessx0O-RDjSrwd0X7WQmlRIaBYNqRo2vIAnx60hwV_hjpyXt4a_JXcdmzK50OK2TCarPT-ePhJyUYE32ZkZtdPJui36KL2epfO4KdtH7PoQ4ma4E-mBodQEdAkgSvD8h7gKy/s800/room_youshitsu.png", enemies:[
-    { name:"睡魔", icon:"🥱", hp:60, atk:8, def:2, spd:5, gold:80, msg:"ウトウトしてきた...", pattern: "single", attackStyle:"upperHand", weakTo:"foot", weakHeight:"middle", isUnique: false },
-    { name:"ゲーム機", icon:"🎮", hp:110, atk:12, def:4, spd:8, gold:120, msg:"あと1分だけ...", pattern: "single", attackStyle:"middleHand", weakTo:"foot", weakHeight:"upper", isUnique: false },
-    { name:"トイレ", icon:"🚽", hp:150, atk:10, def:8, spd:2, gold:150, msg:"こもると快適...", pattern: "defensive", attackStyle:"lowerKick", weakTo:"hand", weakHeight:"upper", isUnique: false },
-    { name:"甘やかしの影（父）", icon:"👨", hp:250, atk:18, def:10, spd:10, gold:300, msg:"宿題なんてしなくていい。ずっと遊んでいなさい……", pattern: "double", attackStyle:"lowerKick", weakTo:"hand", isUnique: true },
-    { name:"甘やかしの影（母）", icon:"👩", hp:400, atk:25, def:12, spd:15, gold:500, msg:"片づけも明日の準備もしなくていい。何もしなくていいのよ……", pattern: "boss", attackStyle:"mixed", weakTo:"hand", isUnique: true }
+    { name:"睡魔", icon:"🥱", recommendedLv:1, hp:60, atk:8, def:2, spd:5, gold:80, msg:"ウトウトしてきた...", pattern: "single", attackStyle:"upperHand", weakTo:"foot", weakHeight:"middle", isUnique: false },
+    { name:"ゲーム機", icon:"🎮", recommendedLv:5, hp:400, atk:35, def:20, spd:8, gold:120, msg:"あと1分だけ...", pattern: "single", attackStyle:"middleHand", weakTo:"foot", weakHeight:"upper", isUnique: false },
+    { name:"トイレ", icon:"🚽", recommendedLv:9, hp:1000, atk:70, def:50, spd:2, gold:150, msg:"こもると快適...", pattern: "defensive", attackStyle:"lowerKick", weakTo:"hand", weakHeight:"upper", isUnique: false },
+    { name:"甘やかしの影（父）", icon:"👨", recommendedLv:13, hp:2200, atk:115, def:100, spd:10, gold:300, msg:"宿題なんてしなくていい。ずっと遊んでいなさい……", pattern: "double", attackStyle:"lowerKick", weakTo:"hand", isUnique: true },
+    { name:"甘やかしの影（母）", icon:"👩", recommendedLv:17, hp:5000, atk:170, def:180, spd:15, gold:500, msg:"片づけも明日の準備もしなくていい。何もしなくていいのよ……", pattern: "boss", attackStyle:"mixed", weakTo:"hand", isUnique: true }
   ]},
   { id:"stage2", name:"教室", recommendedLv:"21〜40", icon:"🏫", stars:"⭐︎⭐︎", bgm:"intense", bgImg:"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjPOhWDPVD9wMvDy4K74KNokVyjpJp6pacaFVWIYcrR1ROZ5ZATKt4gpOY-dZEsqoDxLbSEzF5OVzFUmuFjxYETZi0Y6JjYw5Ht6FOHa49SqRRkLz2l2HjlV4teevsk60RS4UdJHl-WTjU/s800/bg_school_room_back.jpg", enemies:[
-    { name:"同級生", icon:"👦", hp:500, atk:160, def:60, spd:12, gold:350, msg:"放課後カラオケ行こうぜ！", pattern: "double", attackStyle:"lowerKick", weakTo:"hand", weakHeight:"upper", isUnique: false },
-    { name:"学級委員長", icon:"👓", hp:850, atk:220, def:90, spd:14, gold:500, msg:"校則はしっかり守りましょう！", pattern: "all_prob", attackStyle:"upperHand", weakTo:"foot", isUnique: true },
-    { name:"担任の先生", icon:"👨‍🏫", hp:1300, atk:280, def:130, spd:18, gold:900, msg:"そこ！廊下を走らない！", pattern: "boss", attackStyle:"upperHand", chargeRate:0.45, weakTo:"foot", isUnique: true },
-    { name:"教頭先生", icon:"👴", hp:1800, atk:340, def:170, spd:15, gold:1500, msg:"盆裁の手入れで忙しいんじゃ", pattern: "defensive", attackStyle:"middleHand", weakTo:"foot", isUnique: true },
-    { name:"校長先生", icon:"🧔‍♂️", hp:2500, atk:420, def:220, spd:20, gold:2500, msg:"皆さんが静かになるまで3分かかりました", pattern: "boss", attackStyle:"mixed", weakTo:"foot", isUnique: true }
+    { name:"同級生", icon:"👦", recommendedLv:21, hp:4500, atk:380, def:200, spd:12, gold:350, msg:"放課後カラオケ行こうぜ！", pattern: "double", attackStyle:"lowerKick", weakTo:"hand", weakHeight:"upper", isUnique: false },
+    { name:"学級委員長", icon:"👓", recommendedLv:25, hp:6500, atk:470, def:280, spd:14, gold:500, msg:"校則はしっかり守りましょう！", pattern: "all_prob", attackStyle:"upperHand", weakTo:"foot", isUnique: true },
+    { name:"担任の先生", icon:"👨‍🏫", recommendedLv:29, hp:9000, atk:580, def:360, spd:18, gold:900, msg:"そこ！廊下を走らない！", pattern: "boss", attackStyle:"upperHand", chargeRate:0.45, weakTo:"foot", isUnique: true },
+    { name:"教頭先生", icon:"👴", recommendedLv:33, hp:12000, atk:660, def:440, spd:15, gold:1500, msg:"盆裁の手入れで忙しいんじゃ", pattern: "defensive", attackStyle:"middleHand", weakTo:"foot", isUnique: true },
+    { name:"校長先生", icon:"🧔‍♂️", recommendedLv:37, hp:16000, atk:750, def:520, spd:20, gold:2500, msg:"皆さんが静かになるまで3分かかりました", pattern: "boss", attackStyle:"mixed", weakTo:"foot", isUnique: true }
   ]},
   { id:"stage3", name:"ショッピングモール", recommendedLv:"41〜60", icon:"🛍️", stars:"⭐︎⭐︎⭐︎", bgm:"intense", bgImg:"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhK064xVNLQE2lv5Or82ysxYZs1apnxOPiXTNIz2FHFvIcv4LAcxWxXWzC6df1rUm_9yyz4pkLd2Hv1Zs1Tpjp5bs6JXLv40unRmOndysU1-KxUdf8ekzFv4_9_-Xt1zUHB4X-3Z5C4pxUq/s800/shopping_mall_ekinaka.png", enemies:[
-    { name:"買い食いの誘惑", icon:"🍟", hp:3000, atk:450, def:400, spd:18, gold:1500, msg:"揚げたてポテトのいい香り...", pattern: "all_prob", attackStyle:"lowerKick", weakTo:"hand", weakHeight:"upper", isUnique: false },
-    { name:"遊びの誘惑", icon:"🕹️", hp:5000, atk:520, def:450, spd:24, gold:2500, msg:"新作クレーンゲーム入荷！", pattern: "double", attackStyle:"lowerKick", weakTo:"hand", isUnique: false },
-    { name:"詐欺師", icon:"🕶️", hp:7500, atk:650, def:550, spd:30, gold:4000, msg:"絶対儲かる話があるんだけど", pattern: "heavy", attackStyle:"upperHand", weakTo:"foot", isUnique: true },
-    { name:"不審者", icon:"🥸", hp:10000, atk:720, def:600, spd:28, gold:6000, msg:"ちょっとお茶でもいかが？", pattern: "defensive", attackStyle:"mixed", weakTo:"hand", isUnique: true },
-    { name:"他校の強豪空手部員", icon:"😈", hp:14000, atk:800, def:700, spd:38, gold:9000, msg:"ウチの道場の看板、背負ってんだよ！", pattern: "boss", attackStyle:"mixed", chargeRate:0.38, weakHeight:"lower", isUnique: true }
+    { name:"買い食いの誘惑", icon:"🍟", recommendedLv:41, hp:6500, atk:650, def:450, spd:18, gold:1500, msg:"揚げたてポテトのいい香り...", pattern: "all_prob", attackStyle:"lowerKick", weakTo:"hand", weakHeight:"upper", isUnique: false },
+    { name:"遊びの誘惑", icon:"🕹️", recommendedLv:45, hp:9500, atk:800, def:520, spd:24, gold:2500, msg:"新作クレーンゲーム入荷！", pattern: "double", attackStyle:"lowerKick", weakTo:"hand", isUnique: false },
+    { name:"詐欺師", icon:"🕶️", recommendedLv:49, hp:13000, atk:1000, def:620, spd:30, gold:4000, msg:"絶対儲かる話があるんだけど", pattern: "heavy", attackStyle:"upperHand", weakTo:"foot", isUnique: true },
+    { name:"不審者", icon:"🥸", recommendedLv:53, hp:17000, atk:1150, def:720, spd:28, gold:6000, msg:"ちょっとお茶でもいかが？", pattern: "defensive", attackStyle:"mixed", weakTo:"hand", isUnique: true },
+    { name:"他校の強豪空手部員", icon:"😈", recommendedLv:57, hp:23000, atk:1350, def:850, spd:38, gold:9000, msg:"ウチの道場の看板、背負ってんだよ！", pattern: "boss", attackStyle:"mixed", chargeRate:0.38, weakHeight:"lower", isUnique: true }
   ]},
   { id:"stage4", name:"学習塾", recommendedLv:"61〜70", icon:"✏️", stars:"⭐︎⭐︎⭐︎⭐︎", bgm:"epic", bgImg:"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiQzJCIwUWlk4zNeTDKb509FD7uGjLT0I4k7JzJfLp2yv4ekXjkgT3Ubj6TwzlmkVc8_xyPn2uXIyzIxFNJpX4csWvByD2RtPTHkirxSAMGG6IZBkOE0rxocvd5Tpcc-QdEHYdtYiBGamyT/s800/schoo_room_shichoukakushitsu.png", enemies:[
-    { name:"宿題", icon:"📝", hp:9000, atk:800, def:700, spd:25, gold:8000, msg:"提出期限は明日朝8時！", pattern: "single", attackStyle:"middleHand", weakTo:"foot", isUnique: false },
-    { name:"抜き打ち小テスト", icon:"📄", hp:13000, atk:950, def:850, spd:35, gold:12000, msg:"しまえ！今からテストを配る！", pattern: "double", attackStyle:"lowerKick", weakTo:"hand", weakHeight:"upper", isUnique: false },
-    { name:"難解なテスト", icon:"📐", hp:18000, atk:1100, def:1000, spd:38, gold:18000, msg:"極限値を求めよ...", pattern: "all_prob", attackStyle:"middleHand", weakTo:"foot", isUnique: true },
-    { name:"浪人生", icon:"🎒", hp:24000, atk:1250, def:1200, spd:45, gold:25000, msg:"背負っているものの重みが違う！", pattern: "defensive", attackStyle:"mixed", weakTo:"foot", isUnique: true },
-    { name:"塾の先生", icon:"👨‍💻", hp:32000, atk:1450, def:1400, spd:50, gold:35000, msg:"この問題、過去問で5回やったぞ！", pattern: "boss", attackStyle:"mixed", chargeRate:0.35, weakTo:"hand", isUnique: true }
+    { name:"宿題", icon:"📝", recommendedLv:61, hp:13000, atk:1000, def:800, spd:25, gold:8000, msg:"提出期限は明日朝8時！", pattern: "single", attackStyle:"middleHand", weakTo:"foot", isUnique: false },
+    { name:"抜き打ち小テスト", icon:"📄", recommendedLv:63, hp:18500, atk:1200, def:950, spd:35, gold:12000, msg:"しまえ！今からテストを配る！", pattern: "double", attackStyle:"lowerKick", weakTo:"hand", weakHeight:"upper", isUnique: false },
+    { name:"難解なテスト", icon:"📐", recommendedLv:65, hp:24000, atk:1400, def:1100, spd:38, gold:18000, msg:"極限値を求めよ...", pattern: "all_prob", attackStyle:"middleHand", weakTo:"foot", isUnique: true },
+    { name:"浪人生", icon:"🎒", recommendedLv:67, hp:30000, atk:1600, def:1250, spd:45, gold:25000, msg:"背負っているものの重みが違う！", pattern: "defensive", attackStyle:"mixed", weakTo:"foot", isUnique: true },
+    { name:"塾の先生", icon:"👨‍💻", recommendedLv:69, hp:40000, atk:1800, def:1450, spd:50, gold:35000, msg:"この問題、過去問で5回やったぞ！", pattern: "boss", attackStyle:"mixed", chargeRate:0.35, weakTo:"hand", isUnique: true }
   ]},
   { id:"stage5", name:"道場", recommendedLv:"71〜80", icon:"🥋", stars:"⭐︎⭐︎⭐︎⭐︎⭐︎", bgm:"epic", bgImg:"image/dojo-battle.svg", enemies:[
-    { name:"指導員", icon:"👨", hp:18000, atk:1400, def:1250, spd:55, gold:45000, msg:"基本稽古千回！押忍！", pattern: "all_prob", attackStyle:"upperHand", weakTo:"foot", isUnique: false },
-    { name:"師範代", icon:"😎", hp:26000, atk:1650, def:1400, spd:65, gold:70000, msg:"我が拳の冴え、見切れるか！", pattern: "heavy", attackStyle:"mixed", weakTo:"foot", isUnique: true },
-    { name:"師範", icon:"👴", hp:38000, atk:1900, def:1550, spd:80, gold:100000, msg:"気合いが足りん！出直してこい！", pattern: "double", attackStyle:"mixed", weakTo:"hand", isUnique: true },
-    { name:"館長", icon:"😾", hp:52000, atk:2200, def:1700, spd:95, gold:150000, msg:"道場百年の歴史、我が拳にあり！", pattern: "boss", attackStyle:"mixed", chargeRate:0.32, weakHeight:"lower", isUnique: true },
-    { name:"自分", icon:"🪞", hp:70000, atk:2500, def:1850, spd:115, gold:300000, msg:"己に打ち克つ者こそ、真の覇者！", pattern: "boss", attackStyle:"mixed", weakTo:"hand", isUnique: true }
+    { name:"指導員", icon:"👨", recommendedLv:71, hp:22000, atk:1600, def:1350, spd:55, gold:45000, msg:"基本稽古千回！押忍！", pattern: "all_prob", attackStyle:"upperHand", weakTo:"foot", isUnique: false },
+    { name:"師範代", icon:"😎", recommendedLv:73, hp:32000, atk:1850, def:1500, spd:65, gold:70000, msg:"我が拳の冴え、見切れるか！", pattern: "heavy", attackStyle:"mixed", weakTo:"foot", isUnique: true },
+    { name:"師範", icon:"👴", recommendedLv:75, hp:45000, atk:2100, def:1650, spd:80, gold:100000, msg:"気合いが足りん！出直してこい！", pattern: "double", attackStyle:"mixed", weakTo:"hand", isUnique: true },
+    { name:"館長", icon:"😾", recommendedLv:77, hp:60000, atk:2350, def:1800, spd:95, gold:150000, msg:"道場百年の歴史、我が拳にあり！", pattern: "boss", attackStyle:"mixed", chargeRate:0.32, weakHeight:"lower", isUnique: true },
+    { name:"自分", icon:"🪞", recommendedLv:79, hp:80000, atk:2600, def:1950, spd:115, gold:300000, msg:"己に打ち克つ者こそ、真の覇者！", pattern: "boss", attackStyle:"mixed", weakTo:"hand", isUnique: true }
   ]}
 ];
 

@@ -6,12 +6,12 @@ let gameState = {
   char: { name: "押忍たろう", gender: "男", age: 15, avatar: "🥋" },
   baseStats: null,
   companions: [],
-  stats: { lv: 1, exp: 0, gold: 500, dojoCount: 0, selfCount: 0, lastDojoDate: "", lastSelfDate: "", lastDojoWeek: "", lastSelfMonth: "", lastGachaDate: "" },
+  stats: { lv: 1, exp: 0, gold: 500, dojoCount: 0, selfCount: 0, dojoStreak: 0, bestDojoStreak: 0, lastDojoDate: "", lastSelfDate: "", lastDojoWeek: "", lastSelfMonth: "", lastGachaDate: "" },
   inventory: { items: {}, equips: [] },
   equipped: { "頭": null, "体": null, "武器": null, "装飾": null },
   favoriteSkills: [],
   story: { seen: [], completed: false },
-  progress: { clearedEnemies: [] },
+  progress: { clearedEnemies: [], enemyWins: {}, claimedMissions: [], notifiedMissions: [] },
   adminOverrides: { unlimitedUses: false, unlockAllStages: false },
   settings: { bgmVol: 0.2, seVol: 0.3 }
 };
@@ -60,9 +60,15 @@ function loadGame() {
       if (!Array.isArray(gameState.story.seen)) gameState.story.seen = [];
       if (typeof gameState.story.completed !== "boolean") gameState.story.completed = false;
       if (!gameState.progress || typeof gameState.progress !== "object") {
-        gameState.progress = { clearedEnemies: [] };
+        gameState.progress = { clearedEnemies: [], enemyWins: {}, claimedMissions: [], notifiedMissions: [] };
       }
       if (!Array.isArray(gameState.progress.clearedEnemies)) gameState.progress.clearedEnemies = [];
+      if (!gameState.progress.enemyWins || typeof gameState.progress.enemyWins !== "object") gameState.progress.enemyWins = {};
+      if (!Array.isArray(gameState.progress.claimedMissions)) gameState.progress.claimedMissions = [];
+      if (!Array.isArray(gameState.progress.notifiedMissions)) gameState.progress.notifiedMissions = [];
+      if (!gameState.stats || typeof gameState.stats !== "object") gameState.stats = {};
+      gameState.stats.dojoStreak = Math.max(0, Number(gameState.stats.dojoStreak) || 0);
+      gameState.stats.bestDojoStreak = Math.max(0, Number(gameState.stats.bestDojoStreak) || 0);
       if (!gameState.adminOverrides || typeof gameState.adminOverrides !== "object") {
         gameState.adminOverrides = { unlimitedUses: false, unlockAllStages: false };
       }
@@ -100,6 +106,20 @@ function updateHeaderGold() {
 
 function formatGold(amount) {
   return Math.floor(Number(amount) || 0).toLocaleString("ja-JP");
+}
+
+function getQuantityInputValue(input, min, max) {
+  const rawValue = input?.value.trim();
+  if (!rawValue || !/^\d+$/.test(rawValue)) return null;
+  const value = Number(rawValue);
+  if (!Number.isSafeInteger(value)) return null;
+  return Math.min(max, Math.max(min, value));
+}
+
+function normalizeQuantityInput(input, min, max) {
+  const value = getQuantityInputValue(input, min, max) ?? min;
+  if (input) input.value = String(value);
+  return value;
 }
 
 function checkCompanionUnlock(notify = true) {

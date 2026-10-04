@@ -3,6 +3,7 @@
  */
 const PAGE_FILES = [
   'pages/home.html',
+  'pages/missions.html',
   'pages/settings.html',
   'pages/char-edit.html',
   'pages/stage-select.html',
