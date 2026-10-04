@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">決戦の道場</title>
+  <desc id="desc">黄金の光が差し込む、巨大な木造空手道場の決戦場。</desc>
+  <defs>
+    <linearGradient id="ceiling" x2="0" y2="1">
+      <stop stop-color="#171820"/>
+      <stop offset="1" stop-color="#39302a"/>
+    </linearGradient>
+    <linearGradient id="rear-wall" x2="0" y2="1">
+      <stop stop-color="#69452b"/>
+      <stop offset="1" stop-color="#251f1a"/>
+    </linearGradient>
+    <linearGradient id="floor" x2="0" y2="1">
+      <stop stop-color="#84603c"/>
+      <stop offset=".5" stop-color="#513a2b"/>
+      <stop offset="1" stop-color="#201b19"/>
+    </linearGradient>
+    <linearGradient id="sunbeam" x2="0" y2="1">
+      <stop stop-color="#fff0b1" stop-opacity=".8"/>
+      <stop offset="1" stop-color="#e9a947" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="arena-glow">
+      <stop stop-color="#f7d27b" stop-opacity=".46"/>
+      <stop offset="1" stop-color="#f7d27b" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="screen-grid" width="42" height="42" patternUnits="userSpaceOnUse">
+      <path d="M0 0v42M0 0h42" fill="none" stroke="#62472f" stroke-width="3" opacity=".72"/>
+    </pattern>
+    <filter id="soft-glow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="28"/>
+    </filter>
+    <filter id="haze">
+      <feGaussianBlur stdDeviation="12"/>
+    </filter>
+  </defs>
+
+  <rect width="1600" height="900" fill="#131519"/>
+  <path d="M0 0h1600v355H0z" fill="url(#ceiling)"/>
+  <path d="M0 104h1600M0 194h1600M0 284h1600" stroke="#171513" stroke-width="26"/>
+  <path d="M115 0v343M365 0v343M615 0v343M865 0v343M1115 0v343M1365 0v343M1580 0v343"
+        stroke="#5c3e26" stroke-width="20"/>
+  <path d="M0 326h1600v63H0z" fill="#201a16"/>
+  <path d="M0 348h1600M0 376h1600" stroke="#a87942" stroke-width="8" opacity=".8"/>
+
+  <path d="M76 52h1448v290H76z" fill="url(#rear-wall)" stroke="#171411" stroke-width="18"/>
+  <path d="M105 76h1390v246H105z" fill="url(#screen-grid)"/>
+  <path d="M125 96h1350v218H125z" fill="url(#screen-grid)" opacity=".65"/>
+  <path d="M124 90h1352v16H124zM124 306h1352v17H124z" fill="#8d633a"/>
+
+  <path d="M0 96 160 0h270v347H0z" fill="#211c19" opacity=".88"/>
+  <path d="M1600 96 1440 0h-270v347h430z" fill="#211c19" opacity=".88"/>
+  <path d="M47 79h111v282H47zM1442 79h111v282h-111z" fill="#39291e"/>
+  <path d="M62 95h82v250H62zM1457 95h82v250h-82z" fill="#e6c895" opacity=".24"/>
+  <path d="M76 95v250M102 95v250M128 95v250M1471 95v250M1497 95v250M1523 95v250"
+        stroke="#795b3a" stroke-width="5" opacity=".75"/>
+
+  <path d="M620 84h360v236H620z" fill="#171512" stroke="#9b713f" stroke-width="13"/>
+  <path d="M642 105h316v194H642z" fill="#ddcaa4"/>
+  <path d="M658 120h284v165H658z" fill="#c9b38a"/>
+  <path d="M800 127v151" stroke="#8e714c" stroke-width="4"/>
+  <text x="760" y="188" text-anchor="middle" fill="#433322" font-size="50" font-family="serif" font-weight="700">空</text>
+  <text x="840" y="252" text-anchor="middle" fill="#433322" font-size="50" font-family="serif" font-weight="700">手</text>
+  <path d="M605 76h390v18H605z" fill="#bd8c4c"/>
+
+  <g opacity=".72">
+    <path d="M0 345h1600v74H0z" fill="#171616"/>
+    <path d="M0 361h1600" stroke="#ba8950" stroke-width="6"/>
+    <path d="M0 401h1600" stroke="#513821" stroke-width="12"/>
+  </g>
+  <g fill="#111317" opacity=".83">
+    <path d="M40 345v-51h20v-35h17v35h21v51zM126 345v-43h18v-29h20v29h20v43z"/>
+    <path d="M1390 345v-46h20v-33h18v33h22v46zM1483 345v-56h18v-29h20v29h20v56z"/>
+  </g>
+
+  <path d="M0 385h1600v515H0z" fill="url(#floor)"/>
+  <ellipse cx="800" cy="579" rx="620" ry="258" fill="url(#arena-glow)" filter="url(#soft-glow)"/>
+  <path d="M0 423h1600M0 508h1600M0 617h1600M0 770h1600" stroke="#d19b58" stroke-width="5" opacity=".22"/>
+  <path d="M158 386 0 900M425 386 293 900M690 386 640 900M910 386 960 900M1175 386 1307 900M1442 386 1600 900"
+        stroke="#171615" stroke-width="6" opacity=".58"/>
+  <path d="M0 388 390 388 700 900H0zM1210 388h390v512H900z" fill="url(#sunbeam)" opacity=".28"/>
+  <path d="M0 405h1600" stroke="#e2b76d" stroke-width="8" opacity=".18"/>
+  <path d="M0 0h1600v900H0z" fill="url(#arena-glow)" opacity=".16"/>
+  <ellipse cx="800" cy="386" rx="650" ry="46" fill="#f5d99a" opacity=".18" filter="url(#haze)"/>
+  <rect width="1600" height="900" fill="#080a10" opacity=".12"/>
+</svg>

@@ -1,0 +1,40 @@
+<!-- ADMIN -->
+    <div id="screen-admin" class="screen">
+      <div class="card">
+        <div class="card-title">🔒 師範代専用 管理画面</div>
+        <div style="display:flex; flex-direction:column; gap:8px; font-size:0.8rem;">
+          <div>
+            <label>レベル (1-99)</label>
+            <input type="number" id="adm-lv" min="1" max="99">
+          </div>
+          <div>
+            <label>所持金 (円)</label>
+            <input type="number" id="adm-gold">
+          </div>
+          <div>
+            <label>累積経験値</label>
+            <input type="number" id="adm-exp">
+          </div>
+          <div class="admin-stat-grid">
+            <div><label for="adm-stat-hp">基礎HP</label><input type="number" id="adm-stat-hp" min="0"></div>
+            <div><label for="adm-stat-mp">基礎MP</label><input type="number" id="adm-stat-mp" min="0"></div>
+            <div><label for="adm-stat-atk">攻撃力</label><input type="number" id="adm-stat-atk" min="0"></div>
+            <div><label for="adm-stat-def">防御力</label><input type="number" id="adm-stat-def" min="0"></div>
+            <div><label for="adm-stat-spd">素早さ</label><input type="number" id="adm-stat-spd" min="0"></div>
+            <div><label for="adm-dojo-count">道場稽古回数</label><input type="number" id="adm-dojo-count" min="0"></div>
+            <div><label for="adm-self-count">自主稽古回数</label><input type="number" id="adm-self-count" min="0"></div>
+          </div>
+          <button class="btn btn-blue" onclick="saveAdminStats()">ステータス更新</button>
+          <hr style="border-color:var(--border-color); margin:4px 0;">
+          <button class="btn btn-gold" onclick="resetDailyLimits()">稽古週・月制限 / ガチャ日制限をリセット</button>
+          <button class="btn btn-blue" id="adm-unlimited-toggle" onclick="toggleUnlimitedUses()"></button>
+          <button class="btn btn-blue" id="adm-stage-unlock-toggle" onclick="toggleAllStagesUnlocked()"></button>
+          <div>
+            <label for="adm-gacha-equip">次回ガチャで獲得するアイテム（1回限り）</label>
+            <select id="adm-gacha-equip"></select>
+          </div>
+          <button class="btn btn-blue" onclick="setGuaranteedGachaEquip()">指定アイテムを保存</button>
+          <button class="btn btn-red" onclick="resetAllData()" style="margin-top:8px;">💾 全セーブデータ初期化</button>
+        </div>
+      </div>
+    </div>

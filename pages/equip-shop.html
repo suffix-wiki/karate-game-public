@@ -1,0 +1,20 @@
+<!-- EQUIP SHOP -->
+    <div id="screen-equip-shop" class="screen">
+      <div class="card">
+        <div class="card-title">
+          <span>🛍️ ショップ（装備屋）</span>
+          <span style="font-size:0.8rem;">所持金: <b style="color:var(--accent-gold);" class="val-gold">0</b>円</span>
+        </div>
+        <div class="tab-row" id="equip-shop-tabs">
+          <button class="tab-btn active" onclick="filterEquipShop('all')">すべて</button>
+          <button class="tab-btn" onclick="filterEquipShop('頭')">頭</button>
+          <button class="tab-btn" onclick="filterEquipShop('体')">体</button>
+          <button class="tab-btn" onclick="filterEquipShop('武器')">武器</button>
+          <button class="tab-btn" onclick="filterEquipShop('装飾')">装飾</button>
+        </div>
+        <label class="rarity-filter"><span class="filter-label">レア度</span><select id="equip-shop-rarity-filter" aria-label="レア度で絞り込み" onchange="filterEquipShop()">
+          <option value="all">全レア度</option><option value="N">N</option><option value="R">R</option><option value="SR">SR</option><option value="SSR">SSR</option><option value="UR">UR</option>
+        </select></label>
+        <div class="item-list" id="equip-shop-list" style="margin-top:8px;"></div>
+      </div>
+    </div>

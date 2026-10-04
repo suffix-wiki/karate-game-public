@@ -1,0 +1,31 @@
+<!-- FITTING ROOM -->
+    <div id="screen-fitting" class="screen">
+      <div class="card">
+        <div class="card-title">🥋 更衣室（装備変更）</div>
+        <div class="tab-row" id="fitting-member-tabs" style="margin-bottom:6px;"></div>
+        <div style="display:flex; flex-direction:column; gap:6px; margin-bottom:10px;" id="equipped-slots"></div>
+      </div>
+
+      <div class="card" style="flex:1;">
+        <div class="card-title">🎒 所持装備品一覧</div>
+        <div id="fitting-filters"></div>
+        <div class="item-list" id="fitting-list" style="margin-top:8px;"></div>
+      </div>
+    </div>
+
+    <!-- SCIENCE LAB -->
+    <div id="screen-lab" class="screen">
+      <div class="card">
+        <div class="card-title">🧪 理科室（開発・強化）</div>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px;">
+          <button class="menu-item" onclick="openScreen('screen-lab-upgrade')" style="width:100%;">
+            <div class="menu-icon">⬆️</div>
+            <div class="menu-label">装備レベルアップ</div>
+          </button>
+          <button class="menu-item" onclick="openScreen('screen-lab-combine')" style="width:100%;">
+            <div class="menu-icon">🧬</div>
+            <div class="menu-label">装備合成</div>
+          </button>
+        </div>
+      </div>
+    </div>

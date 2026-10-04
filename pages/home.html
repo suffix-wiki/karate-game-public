@@ -1,0 +1,35 @@
+<!-- HOME -->
+    <div id="screen-home" class="screen active home-screen">
+      <button class="home-profile" onclick="openScreen('screen-char-edit')" aria-label="キャラクター情報を編集">
+        <span class="home-profile-avatar" id="home-avatar">🥋</span>
+        <span class="home-profile-copy">
+          <span class="home-profile-name" id="home-name">押忍たろう</span>
+          <span class="home-profile-meta"><span id="home-title">白帯</span><span>Lv.<b id="home-lv">1</b></span><span>仲間 <b id="home-party-count">1</b>/4</span></span>
+        </span>
+        <span class="home-profile-arrow" aria-hidden="true">›</span>
+      </button>
+
+      <section class="dojo-scene" aria-label="道場での空手稽古">
+        <img class="dojo-scene-art" src="image/dojo-training.svg?v=7" alt="障子と畳、木組みがある伝統的な空手道場" fetchpriority="high">
+        <div class="dojo-scene-shade"></div>
+        <div class="dojo-scene-caption">
+          <span class="dojo-scene-kicker">KARATE DOJO</span>
+          <h1>今日も、一歩ずつ。</h1>
+          <p>積み重ねた稽古が、強さになる。</p>
+        </div>
+        <button class="adventure-button" onclick="openScreen('screen-stages')"><span>⚔</span> 冒険へ <span aria-hidden="true">›</span></button>
+      </section>
+
+      <nav class="home-shortcuts" aria-label="稽古とメニュー">
+        <button class="home-shortcut home-shortcut-training" id="btn-dojo" onclick="doDojoTraining()"><span class="shortcut-icon">🥋</span><span>道場稽古</span><small class="shortcut-frequency">週1回</small></button>
+        <button class="home-shortcut home-shortcut-training" id="btn-self" onclick="doSelfTraining()"><span class="shortcut-icon">🔥</span><span>自主稽古</span><small class="shortcut-frequency">月1回</small></button>
+        <button class="home-shortcut" onclick="openScreen('screen-status')"><span class="shortcut-icon">📊</span><span>ステータス</span></button>
+        <button class="home-shortcut" onclick="openScreen('screen-fitting')"><span class="shortcut-icon">🥋</span><span>更衣室</span></button>
+        <button class="home-shortcut" onclick="openScreen('screen-lab')"><span class="shortcut-icon">🧪</span><span>理科室</span></button>
+        <button class="home-shortcut" onclick="openScreen('screen-item-shop')"><span class="shortcut-icon">🍞</span><span>購買部</span></button>
+        <button class="home-shortcut" onclick="openScreen('screen-equip-shop')"><span class="shortcut-icon">🛍️</span><span>ショップ</span></button>
+        <button class="home-shortcut" onclick="openScreen('screen-fleamarket')"><span class="shortcut-icon">📦</span><span>フリマ</span></button>
+        <button class="home-shortcut" id="btn-gacha" onclick="openScreen('screen-gacha')"><span class="shortcut-icon">🎰</span><span>ガチャ</span></button>
+        <button class="home-shortcut" onclick="requestAdminAccess()"><span class="shortcut-icon">🔒</span><span>管理</span></button>
+      </nav>
+    </div>
