@@ -22,6 +22,11 @@
       font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
     }
 
+    input, textarea, select, [contenteditable="true"] {
+      user-select: text;
+      -webkit-user-select: text;
+    }
+
     body {
       background-color: var(--bg-dark);
       color: var(--text-main);
@@ -29,6 +34,7 @@
       justify-content: center;
       align-items: center;
       min-height: 100vh;
+      min-height: 100dvh;
       overflow-x: hidden;
     }
 
@@ -36,6 +42,7 @@
       width: 100%;
       max-width: 480px;
       height: 100vh;
+      height: 100dvh;
       max-height: 850px;
       background: #020617;
       position: relative;
@@ -49,6 +56,7 @@
     /* Header Bar */
     header {
       height: 50px;
+      flex: 0 0 50px;
       background: var(--bg-card);
       display: flex;
       align-items: center;
@@ -59,12 +67,22 @@
     }
 
     .header-title {
+      border: 0;
+      padding: 0;
+      background: transparent;
       font-weight: bold;
       font-size: 1.1rem;
       color: var(--accent-gold);
       display: flex;
       align-items: center;
       gap: 6px;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .header-title:focus-visible {
+      outline: 2px solid var(--accent-gold);
+      outline-offset: 3px;
     }
 
     .header-gold-display {
@@ -259,7 +277,8 @@
       width: 50px !important;
       padding: 4px !important;
       text-align: center;
-      font-size: 0.8rem !important;
+      font-size: 16px !important;
+      touch-action: manipulation;
     }
 
     /* Modals */
@@ -465,7 +484,7 @@
     .upgrade-controls .qty-input,
     .transaction-controls .qty-input {
       width: 58px !important;
-      min-height: 34px;
+      min-height: 38px;
     }
 
     .transaction-card {
@@ -538,4 +557,61 @@
       font-size: 0.7rem;
       font-weight: bold;
       white-space: nowrap;
+    }
+
+    .mission-list {
+      flex: 1 1 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      min-height: 0;
+      overflow-y: auto;
+    }
+
+    #screen-missions > .card {
+      flex: 1 1 auto;
+      min-height: 0;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .mission-card {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .mission-action.is-in-progress:disabled {
+      color: var(--text-sub);
+      background: var(--bg-card-hover);
+    }
+
+    .mission-action.is-completed {
+      color: #000;
+      background: var(--accent-gold);
+    }
+
+    .mission-action.is-claimed:disabled {
+      color: #fff;
+      background: #047857;
+      opacity: 1;
+    }
+
+    .mission-progress {
+      margin-top: 5px;
+      color: var(--text-sub);
+      font-size: 0.75rem;
+    }
+
+    .mission-reward {
+      margin-top: 4px;
+      color: var(--accent-gold);
+      font-size: 0.75rem;
+    }
+
+    @media (max-width: 600px) {
+      #app-container {
+        max-height: none;
+      }
     }
