@@ -352,6 +352,27 @@
     .label-mp { color: #60a5fa; }
 
     @media (max-width: 600px) {
+      .battle-enemy-nametag {
+        left: 8px;
+        right: 8px;
+        max-width: calc(100% - 16px);
+        transform: none;
+        white-space: normal;
+      }
+      .battle-enemies-container {
+        left: 2%;
+        right: 2%;
+        width: 96%;
+        justify-content: center;
+        gap: clamp(0px, 1vw, 6px);
+      }
+      .char-3d-enemy-wrap {
+        flex: 1 1 0;
+        min-width: 0;
+      }
+      .char-3d-enemy {
+        font-size: clamp(2rem, 12vw, 4rem);
+      }
       .char-3d-party-wrap {
         left: 2%;
         width: 96%;
