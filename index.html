@@ -15,6 +15,7 @@
   <script defer src="js/screens/story.js"></script>
   <script defer src="js/screens/home.js"></script>
   <script defer src="js/screens/training.js"></script>
+  <script defer src="js/screens/missions.js"></script>
   <script defer src="js/screens/character-edit.js"></script>
   <script defer src="js/screens/stage-select.js"></script>
   <script defer src="js/screens/battle.js"></script>
@@ -29,9 +30,9 @@
 
 <div id="app-container">
   <header>
-    <div class="header-title">
+    <button type="button" class="header-title" onclick="requestAdminAccess()" aria-label="管理画面を開く">
       🥋 <span>稽古RPG</span>
-    </div>
+    </button>
     <div class="header-gold-display">
       💰 <span id="header-gold-val">0</span>円
     </div>
