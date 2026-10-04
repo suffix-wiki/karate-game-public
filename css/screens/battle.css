@@ -38,10 +38,7 @@
     }
 
     .battle-enemy-nametag {
-      position: absolute;
-      top: 12px;
-      left: 50%;
-      transform: translateX(-50%);
+      position: relative;
       background: rgba(15, 23, 42, 0.85);
       backdrop-filter: blur(4px);
       padding: 4px 16px;
@@ -53,7 +50,17 @@
       z-index: 12;
       box-shadow: 0 4px 10px rgba(0,0,0,0.6);
       text-align: center;
-      white-space: nowrap;
+      white-space: normal;
+      overflow-wrap: anywhere;
+      align-self: center;
+      max-width: 100%;
+    }
+
+    .battle-ui-top {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      width: 100%;
     }
 
     .battle-enemies-container {
@@ -250,7 +257,7 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      padding: 44px 10px 10px 10px;
+      padding: 10px;
     }
     .battle-layer-ui * { pointer-events: auto; }
 
@@ -352,14 +359,8 @@
     .label-mp { color: #60a5fa; }
 
     @media (max-width: 600px) {
-      .battle-enemy-nametag {
-        left: 8px;
-        right: 8px;
-        max-width: calc(100% - 16px);
-        transform: none;
-        white-space: normal;
-      }
       .battle-enemies-container {
+        top: 32%;
         left: 2%;
         right: 2%;
         width: 96%;
