@@ -3,7 +3,6 @@
       <div id="damage-overlay"></div>
 
       <div id="battle-layer-bg" class="battle-layer-bg"></div>
-      <div class="battle-enemy-nametag" id="battle-enemy-name">睡魔</div>
 
       <div class="battle-layer-chars">
         <div class="char-3d-party-wrap" id="battle-party-3d"></div>
@@ -11,7 +10,10 @@
       </div>
 
       <div class="battle-layer-ui">
-        <div class="battle-log" id="battle-log">バトル開始！</div>
+        <div class="battle-ui-top">
+          <div class="battle-enemy-nametag" id="battle-enemy-name">睡魔</div>
+          <div class="battle-log" id="battle-log">バトル開始！</div>
+        </div>
         <div class="battle-ui-bottom">
           <div class="battle-commands-left" id="battle-commands-area">
             <button class="cmd-btn" onclick="executeBattleAction('attack')">🥊 通常攻撃</button>
