@@ -7,6 +7,10 @@ function startBattleWithEnemy(stageId, enemyIdx) {
   if (!stg) return;
   const masterEnemy = stg.enemies[enemyIdx];
   if (!masterEnemy) return;
+  if (gameState.stats.lv < masterEnemy.recommendedLv) {
+    showToast(`「${masterEnemy.name}」との勝負はLv.${masterEnemy.recommendedLv}からです`);
+    return;
+  }
   const finalBoss = stg.id === "stage5" && masterEnemy.name === "自分";
   const party = [];
   const heroSt = getMemberStats(null);
@@ -879,7 +883,11 @@ function winBattle() {
   if (!clearedEnemies.includes(currentBattle.enemyProgressKey)) {
     clearedEnemies.push(currentBattle.enemyProgressKey);
   }
+  const defeatedCount = currentBattle.finalBoss ? 1 : currentBattle.enemies.length;
+  gameState.progress.enemyWins[currentBattle.enemyProgressKey] =
+    (gameState.progress.enemyWins[currentBattle.enemyProgressKey] || 0) + defeatedCount;
   saveGame();
+  checkMissionProgress();
 
   if (playEnding) {
     stopBGM();

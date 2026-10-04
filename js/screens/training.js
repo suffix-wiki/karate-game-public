@@ -23,6 +23,7 @@ function doDojoTraining() {
     showToast("道場稽古は週1回までです");
     return;
   }
+  recordDojoTrainingStreak();
   gameState.stats.lastDojoWeek = week;
   gameState.stats.lastDojoDate = getTodayString();
   gameState.stats.dojoCount++;
@@ -30,6 +31,7 @@ function doDojoTraining() {
   addExp(gainedExp);
   playSE('win');
   showToast(`🥋 道場稽古完了！ 経験値 +${gainedExp} 獲得！`);
+  checkMissionProgress();
 }
 
 function doSelfTraining() {
@@ -46,4 +48,5 @@ function doSelfTraining() {
   addExp(gainedExp);
   playSE('win');
   showToast(`🔥 自主稽古完了！ 経験値 +${gainedExp} 獲得！`);
+  checkMissionProgress();
 }

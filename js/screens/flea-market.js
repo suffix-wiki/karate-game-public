@@ -25,7 +25,7 @@ function renderSellItemsUI() {
                 </div>
               </div>
               <div class="transaction-controls">
-                <input type="number" id="sell-qty-${item.id}" value="1" min="1" max="${qty}" class="qty-input" aria-label="${item.name}の売却数" oninput="updateSellItemTotalPrice('${item.id}')">
+                <input type="text" inputmode="numeric" pattern="[0-9]*" id="sell-qty-${item.id}" value="1" min="1" max="${qty}" class="qty-input" aria-label="${item.name}の売却数" oninput="updateSellItemTotalPrice('${item.id}')" onblur="normalizeQuantityInput(this, 1, ${qty}); updateSellItemTotalPrice('${item.id}')">
                 <button class="btn btn-red" style="font-size:0.75rem;" onclick="sellItem('${item.id}')">売却</button>
               </div>
             </div>
@@ -49,8 +49,11 @@ function updateSellItemTotalPrice(itemId) {
   if (!item || !qtyInput || !total) return;
 
   const owned = gameState.inventory.items[itemId] || 0;
-  const qty = Math.min(owned, Math.max(1, parseInt(qtyInput.value, 10) || 1));
-  qtyInput.value = qty;
+  const qty = getQuantityInputValue(qtyInput, 1, owned);
+  if (qty === null) {
+    total.innerText = "—";
+    return;
+  }
   total.innerText = formatGold(Math.floor(item.price * 0.5) * qty);
 }
 
@@ -60,7 +63,7 @@ function sellItem(itemId) {
   const qtyInput = document.getElementById(`sell-qty-${itemId}`);
   if (!item || owned <= 0 || !qtyInput) return;
 
-  const qty = Math.min(owned, Math.max(1, parseInt(qtyInput.value, 10) || 1));
+  const qty = normalizeQuantityInput(qtyInput, 1, owned);
   const sellPrice = Math.floor(item.price * 0.5) * qty;
   gameState.inventory.items[itemId] -= qty;
   gameState.stats.gold += sellPrice;

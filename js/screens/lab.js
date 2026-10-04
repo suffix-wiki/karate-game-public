@@ -59,7 +59,7 @@ function renderLabUpgradeUI() {
           </div>
         </div>
         <div class="upgrade-controls">
-          <input type="number" id="upgrade-qty-${eq.instId}" class="qty-input" value="${eq.lv < eq.maxLv ? 1 : 0}" min="${eq.lv < eq.maxLv ? 1 : 0}" max="${Math.max(0, eq.maxLv - eq.lv)}" aria-label="${eq.name}の強化レベル数" ${eq.lv >= eq.maxLv ? 'disabled' : ''} oninput="updateUpgradeTotalPrice('${eq.instId}')">
+          <input type="text" inputmode="numeric" pattern="[0-9]*" id="upgrade-qty-${eq.instId}" class="qty-input" value="${eq.lv < eq.maxLv ? 1 : 0}" min="${eq.lv < eq.maxLv ? 1 : 0}" max="${Math.max(0, eq.maxLv - eq.lv)}" aria-label="${eq.name}の強化レベル数" ${eq.lv >= eq.maxLv ? 'disabled' : ''} oninput="updateUpgradeTotalPrice('${eq.instId}')" onblur="normalizeQuantityInput(this, 1, ${Math.max(1, eq.maxLv - eq.lv)}); updateUpgradeTotalPrice('${eq.instId}')">
           <button class="btn btn-gold" style="font-size:0.75rem;" onclick="upgradeEquipItem('${eq.instId}')" ${eq.lv >= eq.maxLv ? 'disabled' : ''}>強化</button>
         </div>
       </div>
@@ -80,10 +80,17 @@ function updateUpgradeTotalPrice(instId) {
   if (!eq || !qtyInput || !total) return;
 
   const maxLevels = Math.max(0, eq.maxLv - eq.lv);
-  const levels = maxLevels === 0 ? 0 : Math.min(maxLevels, Math.max(1, parseInt(qtyInput.value, 10) || 1));
-  qtyInput.value = levels;
   qtyInput.min = maxLevels === 0 ? 0 : 1;
   qtyInput.max = maxLevels;
+  if (maxLevels === 0) {
+    total.innerText = formatGold(0);
+    return;
+  }
+  const levels = getQuantityInputValue(qtyInput, 1, maxLevels);
+  if (levels === null) {
+    total.innerText = "—";
+    return;
+  }
   total.innerText = formatGold(levels * 300);
 }
 
@@ -98,7 +105,8 @@ function upgradeEquipItem(instId) {
 
   const qtyInput = document.getElementById(`upgrade-qty-${instId}`);
   const maxLevels = eq.maxLv - eq.lv;
-  const levels = Math.min(maxLevels, Math.max(1, parseInt(qtyInput?.value, 10) || 1));
+  if (!qtyInput) return;
+  const levels = normalizeQuantityInput(qtyInput, 1, maxLevels);
   const cost = levels * 300;
   if (gameState.stats.gold < cost) {
     showToast("お金が足りません");

@@ -51,6 +51,7 @@ function openScreen(screenId, options = {}) {
   if (screenId === "screen-char-edit") renderCharEditUI();
   if (screenId === "screen-stages") renderStagesUI();
   if (screenId === "screen-story") renderStoryArchive();
+  if (screenId === "screen-missions") renderMissionUI();
 }
 
 function getStageSelectionBgm(stageId) {

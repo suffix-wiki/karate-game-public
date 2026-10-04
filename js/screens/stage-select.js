@@ -49,17 +49,18 @@ function renderStageEnemies(stg) {
   const enemyList = document.getElementById("enemy-list");
 
   enemyList.innerHTML = stg.enemies.map((e, idx) => `
-    <div class="list-card" onclick="startBattleWithEnemy('${stg.id}', ${idx})" style="cursor:pointer;">
+    <div class="list-card">
       <div class="list-card-main">
         <div class="list-card-left">
           <div class="list-icon">${e.icon}</div>
           <div class="list-details">
             <div class="list-title">${e.name} ${e.isUnique ? '★' : ''}</div>
+            <div class="list-meta">挑戦可能Lv.${e.recommendedLv}</div>
             <div class="list-meta">HP:${e.hp} / 攻撃:${e.atk} / 防御:${e.def}</div>
             ${isEnemyCleared(stg.id, idx) ? '<div class="list-meta" style="color:var(--accent-green);">✓ 影を祓った</div>' : ''}
           </div>
         </div>
-        <button class="btn btn-gold" style="font-size:0.75rem;">勝負！</button>
+        <button class="btn btn-gold" style="font-size:0.75rem;" onclick="startBattleWithEnemy('${stg.id}', ${idx})" ${gameState.stats.lv < e.recommendedLv ? "disabled" : ""}>${gameState.stats.lv < e.recommendedLv ? `Lv.${e.recommendedLv}で解放` : "勝負！"}</button>
       </div>
     </div>
   `).join("");

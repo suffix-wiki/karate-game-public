@@ -17,7 +17,7 @@ function renderItemShopUI() {
           </div>
         </div>
         <div class="transaction-controls">
-          <input type="number" id="buy-qty-${item.id}" value="1" min="1" max="99" class="qty-input" aria-label="${item.name}の購入数" oninput="updateItemTotalPrice('${item.id}')">
+          <input type="text" inputmode="numeric" pattern="[0-9]*" id="buy-qty-${item.id}" value="1" min="1" max="99" class="qty-input" aria-label="${item.name}の購入数" oninput="updateItemTotalPrice('${item.id}')" onblur="normalizeQuantityInput(this, 1, 99); updateItemTotalPrice('${item.id}')">
           <button class="btn btn-gold" style="font-size:0.75rem;" onclick="buyItem('${item.id}')">購入</button>
         </div>
       </div>
@@ -31,8 +31,11 @@ function updateItemTotalPrice(itemId) {
   const total = document.getElementById(`buy-total-${itemId}`);
   if (!item || !qtyInput || !total) return;
 
-  const qty = Math.min(99, Math.max(1, parseInt(qtyInput.value, 10) || 1));
-  qtyInput.value = qty;
+  const qty = getQuantityInputValue(qtyInput, 1, 99);
+  if (qty === null) {
+    total.innerText = "—";
+    return;
+  }
   total.innerText = formatGold(item.price * qty);
 }
 
@@ -41,7 +44,8 @@ function buyItem(itemId) {
   if (!item) return;
 
   const qtyInput = document.getElementById(`buy-qty-${itemId}`);
-  const qty = Math.min(99, Math.max(1, parseInt(qtyInput.value, 10) || 1));
+  if (!qtyInput) return;
+  const qty = normalizeQuantityInput(qtyInput, 1, 99);
   const totalPrice = item.price * qty;
 
   if (gameState.stats.gold < totalPrice) {
@@ -87,7 +91,7 @@ function renderEquipShopUI() {
           </div>
         </div>
         <div class="transaction-controls">
-          <input type="number" id="buy-equip-qty-${eq.id}" value="1" min="1" max="99" class="qty-input" aria-label="${eq.name}の購入数" oninput="updateEquipTotalPrice('${eq.id}', ${eq.price})">
+          <input type="text" inputmode="numeric" pattern="[0-9]*" id="buy-equip-qty-${eq.id}" value="1" min="1" max="99" class="qty-input" aria-label="${eq.name}の購入数" oninput="updateEquipTotalPrice('${eq.id}', ${eq.price})" onblur="normalizeQuantityInput(this, 1, 99); updateEquipTotalPrice('${eq.id}', ${eq.price})">
           <button class="btn btn-gold" style="font-size:0.75rem;" onclick="buyEquip('${eq.id}')">購入</button>
         </div>
       </div>
@@ -100,8 +104,11 @@ function updateEquipTotalPrice(equipId, unitPrice) {
   const totalSpan = document.getElementById(`equip-total-${equipId}`);
   if (!qtyInput || !totalSpan) return;
 
-  let qty = Math.min(99, Math.max(1, parseInt(qtyInput.value, 10) || 1));
-  qtyInput.value = qty;
+  const qty = getQuantityInputValue(qtyInput, 1, 99);
+  if (qty === null) {
+    totalSpan.innerText = "—";
+    return;
+  }
   totalSpan.innerText = formatGold(unitPrice * qty);
 }
 
@@ -110,7 +117,8 @@ function buyEquip(equipId) {
   if (!master) return;
 
   const qtyInput = document.getElementById(`buy-equip-qty-${equipId}`);
-  const qty = Math.min(99, Math.max(1, parseInt(qtyInput.value, 10) || 1));
+  if (!qtyInput) return;
+  const qty = normalizeQuantityInput(qtyInput, 1, 99);
   const totalPrice = master.price * qty;
 
   if (gameState.stats.gold < totalPrice) {
