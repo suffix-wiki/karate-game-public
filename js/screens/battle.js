@@ -196,19 +196,20 @@ function renderBattleHUD() {
       <div class="hud-card ${activeClass} ${defeatedClass}" id="hud-card-${idx}">
         <div class="hud-name">
           <span>${m.avatar} ${m.name}</span>
-          <span style="font-size:0.6rem; color:var(--text-sub);">${m.hp}/${m.maxHp}</span>
         </div>
         <div class="bar-group">
           <span class="bar-label label-hp">HP</span>
           <div class="bar-container" style="flex:1;">
             <div class="bar-fill bg-hp" style="width:${hpPct}%;"></div>
           </div>
+          <span class="bar-value">${m.hp}/${m.maxHp}</span>
         </div>
         <div class="bar-group">
           <span class="bar-label label-mp">MP</span>
           <div class="bar-container" style="flex:1;">
             <div class="bar-fill bg-mp" style="width:${mpPct}%;"></div>
           </div>
+          <span class="bar-value">${m.mp}/${m.maxMp}</span>
         </div>
       </div>
     `;
