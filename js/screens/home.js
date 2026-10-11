@@ -78,7 +78,7 @@ function refreshDailyTrainingAvailability() {
 }
 
 document.addEventListener("visibilitychange", refreshDailyTrainingAvailability);
-window.addEventListener("focus", refreshDailyTrainingAvailability);
+window.addEventListener("focus", updateHomeUI);
 window.addEventListener("pageshow", refreshDailyTrainingAvailability);
 
 function updateHomeUI() {
@@ -102,6 +102,7 @@ function updateHomeUI() {
     ["btn-gacha", gachaDisabled]
   ].forEach(([id, disabled]) => {
     const button = document.getElementById(id);
+    button.disabled = disabled;
     button.classList.toggle("disabled", disabled);
     button.setAttribute("aria-disabled", String(disabled));
   });
